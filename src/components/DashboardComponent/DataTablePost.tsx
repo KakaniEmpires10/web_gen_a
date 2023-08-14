@@ -42,12 +42,14 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   description: string;
+  title : string;
 }
 
 export function DataTablePost<TData, TValue>({
   columns,
   data,
   description,
+  title,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -130,8 +132,8 @@ export function DataTablePost<TData, TValue>({
 
         {/* Button Add */}
         <Button asChild>
-          <Link href="/dashboard/unggulan/add_unggulan">
-            <FilePlus2 className="mr-2" /> Add Unggulan
+          <Link href={`/dashboard/${title}/add_${title}`} className="capitalize">
+            <FilePlus2 className="mr-2" /> tambah {title}
           </Link>
         </Button>
       </div>

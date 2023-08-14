@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { BiMenuAltLeft } from "react-icons/bi";
-import { IoCloseSharp } from "react-icons/io5";
 import { useContext } from "react";
 import { ListRoute } from "@/lib/ListRoute";
 import { usePathname } from "next/navigation";
@@ -45,8 +43,18 @@ const Sidebar = () => {
           <div
             className={`flex flex-col items-center px-2 justify-center gap-3 transition-all duration-300`}
           >
-            <Image className="rounded-full hover:shadow hover:shadow-primary duration-200" src="https://picsum.photos/200" width={50} height={50} alt="logo" />
-            {isSidebarOpen && <span className="text-gray-200 uppercase font-bold text-xl tracking-widest">Gen_A</span>}
+            <div className="relative rounded-full hover:scale-105 hover:cursor-pointer duration-200 overflow-visible w-12 h-14">
+              <Image
+                src="/Logo_GEN-A.png"
+                fill
+                alt="logo"
+              />
+            </div>
+            {isSidebarOpen && (
+              <span className="text-gray-200 uppercase font-bold text-xl tracking-widest">
+                Gen_A
+              </span>
+            )}
           </div>
           <Separator className="my-4 bg-gradient-to-r from-transparent via-primary to-transparent" />
           <ul className="space-y-2">
@@ -59,7 +67,7 @@ const Sidebar = () => {
                     href={link}
                     className={`flex items-center p-4 text-gray-200 hover:text-primary-foreground hover:bg-primary hover:scale-105 ${
                       isActive
-                        ? "color-primary shadow-lg"
+                        ? "bg-primary text-primary-foreground shadow-lg"
                         : ""
                     } rounded-lg ${
                       isSidebarOpen ? "" : "justify-center"

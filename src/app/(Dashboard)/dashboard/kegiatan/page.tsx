@@ -14,7 +14,7 @@ const Kegiatan = async() => {
 
     return (
       <section>
-        <DataTablePost columns={columns} data={data} description="Berikut daftar kegiatan milik"/>
+        <DataTablePost columns={columns} data={data} title="kegiatan" description="Berikut daftar kegiatan milik"/>
       </section>
     );
   };

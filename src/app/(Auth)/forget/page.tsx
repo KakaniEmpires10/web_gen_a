@@ -1,14 +1,14 @@
-import CardReg from "@/components/AuthComponent/CardReg"
+import CardForget from "@/components/AuthComponent/CardForget"
 import { Metadata } from "next"
 
 export const metadata : Metadata = {
-  title : "Register"
+  title : "Forget Password"
 }
 
 const Register = () => {
     return (
       <section>
-          <CardReg />
+          <CardForget />
       </section>
     )
   }

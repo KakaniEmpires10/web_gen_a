@@ -8,7 +8,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Braces, Contact2, User } from "lucide-react";
+import { Contact2, Globe, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,23 +31,23 @@ const TopBar = () => {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <Link href="#" legacyBehavior passHref>
+            <Link href="/about_us" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 {<User className="mr-2" />} About Us
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="#" legacyBehavior passHref>
+            <Link href="contact_us" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 {<Contact2 className="mr-2" />} Contact Us
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="#" legacyBehavior passHref>
+            <Link href="/blog" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                {<Braces className="mr-2" />} Random
+                {<Globe className="mr-2" />} Blog
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>

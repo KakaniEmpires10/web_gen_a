@@ -66,7 +66,7 @@ const TopBar = () => {
     >
       <div>
         <Breadcrumb />
-        <h2 className="first-letter:uppercase text-2xl font-semibold">
+        <h2 className="capitalize text-2xl font-semibold">
           {selectedSegment ? selectedSegment : "Dashboard"}
         </h2>
       </div>

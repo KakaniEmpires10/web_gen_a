@@ -7,7 +7,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { HomeIcon, ScrollTextIcon } from "lucide-react";
+import { HelpCircle, HomeIcon, ScrollTextIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -28,9 +28,9 @@ const Footer = () => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             {currentURL === "/login" ? (
-              <Link href="/register" legacyBehavior passHref>
+              <Link href="/forget" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <ScrollTextIcon className="mr-2" /> Sign Up
+                  <HelpCircle className="mr-2" /> Forget Pass
                 </NavigationMenuLink>
               </Link>
             ) : (

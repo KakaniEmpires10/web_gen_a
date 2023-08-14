@@ -40,7 +40,7 @@ const CardStatus = () => {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="default" asChild className="rounded-full h-8 color-primary">
+                    <Button variant="default" asChild className="rounded-full h-8">
                       <Link href={stats.link}>{stats.iconButton}</Link>
                     </Button>
                   </TooltipTrigger>

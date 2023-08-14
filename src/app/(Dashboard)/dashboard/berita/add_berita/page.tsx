@@ -1,8 +1,16 @@
+import ButtonBack from "@/components/ButtonBack"
+import FormBerita from "@/components/DashboardComponent/form/FormBerita"
+import { Separator } from "@/components/ui/separator"
+
 const AddBerita = () => {
     return (
-      <section>
-          <h1 className="text-3xl font-bold mb-4">Add_berita</h1>
-          <p>Here is where you add your berita</p>
+      <section className="bg-background shadow py-5 px-8 rounded-lg">
+        <ButtonBack />
+        <div className="py-5">
+          <h1 className="text-3xl font-bold mb-4 text-center">Tambah Berita</h1>
+          <Separator className="mb-6"/>
+          <FormBerita />
+        </div>
         </section>
     )
   }

@@ -50,10 +50,4 @@ export const ListRoute : IListRoute[] = [
         link  : "/login",
         title : "Sign In",
     },
-    {
-        id    : 8,
-        icon  : <FaSignOutAlt className="text-3xl"/>,
-        link  : "/register",
-        title : "Sign up",
-    },
 ]

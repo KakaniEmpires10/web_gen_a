@@ -14,7 +14,7 @@ const Inbox = async() => {
     
     return (
       <section>
-        <DataTablePost columns={columns} data={data} description="Berikut daftar Post Berita milik"/>
+        <DataTablePost columns={columns} data={data} title="berita" description="Berikut daftar Post Berita milik"/>
       </section>
     );
   };

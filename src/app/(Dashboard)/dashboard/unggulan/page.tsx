@@ -14,7 +14,7 @@ const Unggulan = async() => {
 
     return (
       <section>
-        <DataTablePost columns={columns} data={data} description="Berikut daftar kegiatan Unggulan milik"/>
+        <DataTablePost columns={columns} data={data} title="unggulan" description="Berikut daftar kegiatan Unggulan milik"/>
       </section>
     );
   };

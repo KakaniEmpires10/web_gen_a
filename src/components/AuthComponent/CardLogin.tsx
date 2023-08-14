@@ -9,6 +9,8 @@ import {
   CardTitle,
 } from "../ui/card";
 import Link from "next/link";
+import LoginForm from "./LoginForm";
+import { Separator } from "../ui/separator";
 
 const CardLogin = () => {
   return (
@@ -16,7 +18,8 @@ const CardLogin = () => {
       <CardHeader>
         <Alert className="absolute px-20 py-8 -top-10 left-0 right-0 mx-auto flex flex-col justify-center gap-4 items-center max-w-sm shadow shadow-primary">
           <CardTitle className="font-bold text-2xl">Login</CardTitle>
-          <AlertDescription className="flex justify-around items-center w-full mt-5">
+          <Separator />
+          <AlertDescription className="flex justify-around items-center w-full mt-2">
             <Button
               asChild
               className="rounded-full overflow-visible hover:scale-110"
@@ -26,7 +29,7 @@ const CardLogin = () => {
               <Link href="#">
                 <Image
                   src="/Facebook_flower.png"
-                  alt="sosmed"
+                  alt="Alt_login"
                   height={35}
                   width={35}
                 />
@@ -41,7 +44,7 @@ const CardLogin = () => {
               <Link href="#">
                 <Image
                   src="/Instagram_flower.png"
-                  alt="sosmed"
+                  alt="Alt_login"
                   height={35}
                   width={35}
                 />
@@ -55,8 +58,8 @@ const CardLogin = () => {
             >
               <Link href="#">
                 <Image
-                  src="/Youtube_flower.png"
-                  alt="sosmed"
+                  src="/Google_flower.png"
+                  alt="Alt_login"
                   height={35}
                   width={35}
                 />
@@ -65,7 +68,9 @@ const CardLogin = () => {
           </AlertDescription>
         </Alert>
       </CardHeader>
-      <CardContent></CardContent>
+      <CardContent className="mt-28">
+        <LoginForm />
+      </CardContent>
       <CardFooter></CardFooter>
     </Card>
   );
