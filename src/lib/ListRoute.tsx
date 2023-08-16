@@ -4,7 +4,7 @@ import { HiMiniClipboardDocumentList } from "react-icons/hi2";
 import { RiDashboardFill } from "react-icons/ri";
 import { BsHouseGearFill } from 'react-icons/bs'
 import { BsStars } from 'react-icons/bs'
-import { FaSignOutAlt } from 'react-icons/fa'
+import { FaSignOutAlt, FaUsers } from 'react-icons/fa'
 import { IListRoute } from "./Types";
 
 export const ListRoute : IListRoute[] = [
@@ -40,12 +40,18 @@ export const ListRoute : IListRoute[] = [
     },
     {
         id    : 6,
+        icon  : <FaUsers className="text-3xl"/>,
+        link  : "/dashboard/user",
+        title : "Users",
+    },
+    {
+        id    : 7,
         icon  : <BsHouseGearFill className="text-3xl"/>,
         link  : "/dashboard/pengaturan",
         title : "Pengaturan",
     },
     {
-        id    : 7,
+        id    : 8,
         icon  : <FaSignOutAlt className="text-3xl"/>,
         link  : "/login",
         title : "Sign In",

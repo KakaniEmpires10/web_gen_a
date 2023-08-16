@@ -22,16 +22,26 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 
-import { useState } from "react";
+import { use, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Link from "next/link";
 import { Search, UserPlus2 } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import FormUser from "./form/FormUser";
+import { usePathname } from "next/navigation";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-  title : String
+  title: String;
 }
 
 export function DataTableUser<TData, TValue>({
@@ -57,6 +67,8 @@ export function DataTableUser<TData, TValue>({
     },
   });
 
+  const currentURL = usePathname();
+
   return (
     <div>
       <div className="flex items-center justify-between py-4">
@@ -68,11 +80,25 @@ export function DataTableUser<TData, TValue>({
           }
           className="max-w-sm border-gray-500"
         />
-        <Button asChild>
-          <Link href="/dashboard/anggota/add_anggota">
-            <UserPlus2 className="mr-2" /> Add Anggota
-          </Link>
-        </Button>
+        {currentURL === "/dashboard/user" ? (
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button><UserPlus2 className="mr-2" /> Tambah User</Button>
+            </DialogTrigger>
+            <DialogContent className="border-l-4 border-l-primary">
+              <DialogHeader>
+                <DialogTitle>Tambah user</DialogTitle>
+              </DialogHeader>
+              <FormUser />
+            </DialogContent>
+          </Dialog>
+        ) : (
+          <Button asChild>
+            <Link href={`/dashboard/${title}/add_${title}`}>
+              <UserPlus2 className="mr-2" /> Tambah {title}
+            </Link>
+          </Button>
+        )}
       </div>
       <div className="relative mt-16">
         <Alert className="absolute -top-10 left-0 right-0 w-[95%] m-auto z-[5]">

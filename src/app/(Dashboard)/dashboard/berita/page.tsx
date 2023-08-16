@@ -1,5 +1,10 @@
 import { DataTablePost } from "@/components/DashboardComponent/DataTablePost";
 import { Berita, columns } from "./column";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title : "Berita"
+}
 
 async function getData(): Promise<Berita[]> {
   const res = await fetch(

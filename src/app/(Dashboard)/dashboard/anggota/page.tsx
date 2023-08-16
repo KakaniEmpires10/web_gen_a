@@ -1,6 +1,11 @@
 import { Pegawai, columns } from "./column";
 import { DataTableUser } from "@/components/DashboardComponent/DataTableUser";
 import axios from "axios";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title : "Anggota"
+}
 
 const getAnggota = async () : Promise<Pegawai[]> => {
   const { data : res } = await axios.get('https://64c0ffa6fa35860bae9fc1e3.mockapi.io/api/user')

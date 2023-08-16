@@ -39,12 +39,12 @@ const FormUnggulan = () => {
   const form = useForm<z.infer<typeof UnggulanSchema>>({
     resolver : zodResolver(UnggulanSchema),
     defaultValues : {
-      author : "",
-      gambarBerita : "",
-      judul : "",
+      author : undefined,
+      gambarBerita : undefined,
+      judul : undefined,
       kategori : undefined,
-      konten : "",
-      ringkasan : "",
+      konten : undefined,
+      ringkasan : undefined,
       status : undefined,
       tanggal : new Date(),
     }

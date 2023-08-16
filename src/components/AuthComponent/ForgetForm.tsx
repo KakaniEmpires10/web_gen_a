@@ -31,7 +31,7 @@ const ForgetForm = () => {
   const formEmail = useForm<z.infer<typeof EmailSchema>>({
     resolver : zodResolver(EmailSchema),
     defaultValues : {
-      email : "",
+      email : undefined,
     }
   });
 
@@ -43,8 +43,8 @@ const ForgetForm = () => {
   const formPassword = useForm<z.infer<typeof NewPasswordSchema>>({
     resolver : zodResolver(NewPasswordSchema),
     defaultValues : {
-      newPassword : "",
-      confirmPassword : ""
+      newPassword : undefined,
+      confirmPassword : undefined
     }
   });
 

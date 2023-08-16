@@ -1,6 +1,11 @@
 import ButtonBack from "@/components/ButtonBack"
 import FormUnggulan from "@/components/DashboardComponent/form/FormUnggulan"
 import { Separator } from "@/components/ui/separator"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title : "Tambah Unggulan"
+}
 
 const AddUnggulan = () => {
   return (

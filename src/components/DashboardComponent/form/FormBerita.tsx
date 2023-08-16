@@ -39,12 +39,12 @@ const FormBerita = () => {
   const form = useForm<z.infer<typeof BeritaSchema>>({
     resolver : zodResolver(BeritaSchema),
     defaultValues : {
-      author : "",
-      gambarBerita : "",
-      judul : "",
+      author : undefined,
+      gambarBerita : undefined,
+      judul : undefined,
       kategori : undefined,
-      konten : "",
-      ringkasan : "",
+      konten : undefined,
+      ringkasan : undefined,
       status : undefined,
       tanggal : new Date(),
     }
