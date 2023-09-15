@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import "../app/style/global.css";
 import type { Metadata } from "next";
 import { Arvo } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 import ThemeProvider from "@/context/ThemeProvider";
 
 export const metadata: Metadata = {
@@ -35,7 +36,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="light" style={{colorScheme: "light"}}>
-      <body className={arvo.className}>
+      <body className={`${arvo.className} flex flex-col`}>
+        <NextTopLoader color="#Eab308" />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           {children}
           <Toaster />

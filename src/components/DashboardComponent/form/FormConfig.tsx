@@ -16,6 +16,7 @@ import { ConfigSchema } from "@/lib/validation/ConfigValidation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Editor } from "@tinymce/tinymce-react";
 import { Facebook, Instagram, Linkedin, PencilLine } from "lucide-react";
+import { FormEventHandler } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -23,24 +24,24 @@ const FormConfig = () => {
   const form = useForm<z.infer<typeof ConfigSchema>>({
     resolver : zodResolver(ConfigSchema),
     defaultValues : {
-        keyword : undefined,
-        metadata : undefined,
-        namaOrganisasi : undefined,
-        singkatan : undefined,
-        motto1 : undefined,
-        motto2 : undefined,
-        deskripsiOrganisasi : undefined,
-        deskripsiWeb : undefined,
-        website : undefined,
-        emaiOrganisasi : undefined,
-        telephone : undefined,
-        alamat : undefined,
-        instagram : undefined,
-        urlinstagram : undefined,
-        facebook : undefined,
-        urlfacebook : undefined,
-        linkedIn : undefined,
-        urllinkedIn: undefined,
+        keyword : "",
+        metadata : "",
+        namaOrganisasi : "",
+        singkatan : "",
+        motto1 : "",
+        motto2 : "",
+        deskripsiOrganisasi : "",
+        deskripsiWeb : "",
+        website : "",
+        emaiOrganisasi : "",
+        telephone : "",
+        alamat : "",
+        instagram : "",
+        urlinstagram : "",
+        facebook : "",
+        urlfacebook : "",
+        linkedIn : "",
+        urllinkedIn: "",
     }
   });
 

@@ -1,3 +1,4 @@
+import Footer from "@/components/MainLayout/Main/Footer";
 import Navbar from "@/components/MainLayout/Main/Navbar";
 
 export default function RootLayout({
@@ -8,7 +9,8 @@ export default function RootLayout({
   return (
     <>
       <Navbar />
-      <main className="min-h-screen">{children}</main>
+      <main className="grow overflow-x-hidden">{children}</main>
+      <Footer />
     </>
   );
 }

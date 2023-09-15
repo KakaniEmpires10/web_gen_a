@@ -32,7 +32,7 @@ const Sidebar = () => {
     <aside
       className={`${
         isSidebarOpen ? "w-64" : "w-16"
-      } transition-all duration-500 z-50`}
+      } transition-all duration-500 z-[99]`}
     >
       <div
         className={`fixed ml-5 my-5 rounded-3xl bg-gradient-to-bl from-gray-700 to-gray-900 overflow-y-auto overflow-x-hidden h-[95%] ${
@@ -44,11 +44,14 @@ const Sidebar = () => {
             className={`flex flex-col items-center px-2 justify-center gap-3 transition-all duration-300`}
           >
             <div className="relative rounded-full hover:scale-105 hover:cursor-pointer duration-200 overflow-visible w-12 h-14">
-              <Image
-                src="/Logo_GEN-A.png"
-                fill
-                alt="logo"
-              />
+              <Link href="/">
+                <Image
+                  src="/Logo_GEN-A.png"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  alt="logo"
+                />
+              </Link>
             </div>
             {isSidebarOpen && (
               <span className="text-gray-200 uppercase font-bold text-xl tracking-widest">
@@ -58,11 +61,11 @@ const Sidebar = () => {
           </div>
           <Separator className="my-4 bg-gradient-to-r from-transparent via-primary to-transparent" />
           <ul className="space-y-2">
-            {ListRoute.map(({ icon, link, title, id }) => {
+            {ListRoute.map(({ icon, link, title }, index) => {
               let isActive: boolean = link === currentURL;
 
               return (
-                <li key={id}>
+                <li key={index}>
                   <Link
                     href={link}
                     className={`flex items-center p-4 text-gray-200 hover:text-primary-foreground hover:bg-primary hover:scale-105 ${

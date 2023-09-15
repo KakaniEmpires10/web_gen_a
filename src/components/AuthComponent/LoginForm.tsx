@@ -89,7 +89,7 @@ const LoginForm = () => {
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel asChild>
-                <Button><span className="text-2xl mb-3 mr-2">&#128083;</span>Bye</Button>
+                <Button className="flex justify-center items-center"><span className="text-2xl mr-2">&#128083;</span>Bye</Button>
               </AlertDialogCancel>
             </AlertDialogFooter>
           </AlertDialogContent>

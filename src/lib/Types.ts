@@ -1,11 +1,14 @@
 import { Url } from "next/dist/shared/lib/router/router";
-import { Key } from "react";
 
 export interface IListRoute  {
-    id    : Key,
     icon  : JSX.Element,
     link  : Url,
     title : String,
+}
+
+export interface IListNav {
+    title : string,
+    link  : Url,
 }
 
 export interface IListStatus  {

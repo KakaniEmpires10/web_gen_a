@@ -8,8 +8,10 @@ const DashboardLayout = ({ children }: ILayout) => {
   return (
     <>
       <div className="flex">
-        <Sidebar />
-        <div className="flex flex-col flex-grow">
+        <div className="flex-col grow-1"> 
+          <Sidebar />
+        </div>
+        <div className="flex flex-col grow-[2]">
           <main className="py-8 px-14 min-h-[93vh]">
             <TopBar />
             {children}

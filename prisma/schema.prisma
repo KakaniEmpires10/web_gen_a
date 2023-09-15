@@ -9,3 +9,120 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+  role     Role   @default(User)
+  // Tambahkan field lain seperti nama, email, dll. sesuai kebutuhan.
+  nama     String
+  email    String
+  // Relasi dengan Blog
+  blogs    Blog[] @relation("userBlogs")
+}
+
+model Blog {
+  id        Int        @id @default(autoincrement())
+  title     String
+  content   String
+  status    StatusBlog @default(pending)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  author    User       @relation("userBlogs", fields: [authorId], references: [id])
+  authorId  Int
+  // Tambahkan field lain seperti tags, gambar, dll. sesuai kebutuhan.
+}
+
+model Karya {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  anggota     Anggota  @relation("karyaAnggota", fields: [anggotaId], references: [id])
+  anggotaId   Int
+  // Tambahkan field lain seperti kategori, teknik, dll. sesuai kebutuhan.
+}
+
+model Page {
+  id      Int    @id @default(autoincrement())
+  title   String
+  content String
+  // Tambahkan field lain seperti gambar, dll. sesuai kebutuhan.
+}
+
+model Gallery {
+  id        Int    @id @default(autoincrement())
+  title     String
+  imageUrl  String
+  deskripsi String?
+  // Tambahkan field lain seperti deskripsi, tanggal, dll. sesuai kebutuhan.
+}
+
+// Tambahkan model Afiliasi
+model Afiliasi {
+  id        Int        @id @default(autoincrement())
+  name      String
+  // Tambahkan field lain seperti deskripsi, logo, dll. sesuai kebutuhan.
+  kegiatans Kegiatan[] @relation("afiliasiKegiatans")
+}
+
+// Tambahkan model Kegiatan Afiliasi
+model Kegiatan {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  date        DateTime
+  // Tambahkan field lain seperti gambar, lokasi, dll. sesuai kebutuhan.
+  afiliasi    Afiliasi @relation("afiliasiKegiatans", fields: [afiliasiId], references: [id])
+  afiliasiId  Int
+}
+
+model Anggota {
+  id         Int     @id @default(autoincrement())
+  nama       String
+  fotoProfil String? // URL atau nama file foto profil
+  areaKerja  String
+  jabatan    String
+  bio        String
+  karyas     Karya[] @relation("karyaAnggota")
+}
+
+model Konfigurasi {
+  id                    Int     @id @default(autoincrement())
+  keyword               String
+  metadata              String
+  namaOrganisasi        String
+  singkatanOrganisasi   String
+  motto                 String
+  motto2                String
+  deskripsiOrganisasi   String
+  deskripsiWeb          String
+  URLWebsite            String
+  emailOrganisasi       String
+  telOrganisasi         Int
+  alamatOrganisasi      String
+  facebook              String?
+  instagram             String?
+  linkedIn              String?
+  URLfacebook           String?
+  URLinstagram          String?
+  URLlinkedIn           String?
+}
+
+enum Role {
+  User
+  Admin
+}
+
+enum StatusBlog {
+  pending
+  publish
+}
+
+enum StatusAnggota {
+  Aktif
+  TidakAktif
+}

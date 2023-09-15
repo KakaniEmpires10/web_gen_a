@@ -67,6 +67,7 @@ export function DataTableUser<TData, TValue>({
     },
   });
 
+  const subURL = title.toLowerCase();
   const currentURL = usePathname();
 
   return (
@@ -94,7 +95,7 @@ export function DataTableUser<TData, TValue>({
           </Dialog>
         ) : (
           <Button asChild>
-            <Link href={`/dashboard/${title}/add_${title}`}>
+            <Link href={`/dashboard/${subURL}/add_${subURL}`}>
               <UserPlus2 className="mr-2" /> Tambah {title}
             </Link>
           </Button>
@@ -109,54 +110,58 @@ export function DataTableUser<TData, TValue>({
             melihat
           </AlertDescription>
         </Alert>
-        <Table className="bg-white/75 border-t-4 border-primary border-b-2">
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow className="h-[100px]" key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead className="align-bottom" key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
+
+        <div className="overflow-y-auto">
+          <Table className="bg-white/75 border-t-4 border-primary border-b-2 w-full">
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow className="h-[100px]" key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => {
+                    return (
+                      <TableHead className="align-bottom" key={header.id}>
+                        {header.isPlaceholder
+                          ? null
+                          : flexRender(
                             header.column.columnDef.header,
                             header.getContext()
                           )}
-                    </TableHead>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
+                      </TableHead>
+                    );
+                  })}
                 </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    className="whitespace-nowrap xl:whitespace-normal"
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="h-24 text-center"
+                  >
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
       </div>
       <div className="flex justify-end gap-5 mt-4">
         <Button

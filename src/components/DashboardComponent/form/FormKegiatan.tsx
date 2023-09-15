@@ -39,12 +39,12 @@ const FormKegiatan = () => {
   const form = useForm<z.infer<typeof KegiatanSchema>>({
     resolver : zodResolver(KegiatanSchema),
     defaultValues : {
-      author : undefined,
-      gambarBerita : undefined,
-      judul : undefined,
+      author : "",
+      gambarBerita : "",
+      judul : "",
       kategori : undefined,
-      konten : undefined,
-      ringkasan : undefined,
+      konten : "",
+      ringkasan : "",
       status : undefined,
       tanggal : new Date(),
     }

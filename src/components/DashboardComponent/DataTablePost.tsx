@@ -42,7 +42,7 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   description: string;
-  title : string;
+  title: string;
 }
 
 export function DataTablePost<TData, TValue>({
@@ -89,8 +89,11 @@ export function DataTablePost<TData, TValue>({
 
   const { isSidebarOpen } = menuContext;
 
+  const subURL = title.toLowerCase()
+
   return (
-    <div className={`${isSidebarOpen && "max-w-6xl"} ml-auto`}>
+    <div>
+      {/* className={`${isSidebarOpen && "max-w-6xl"} ml-auto`} -> compitable with windows */}
       <div className="flex items-center justify-between py-4">
         {/* filter input and button section */}
         <div className="flex flex-grow gap-5">
@@ -132,7 +135,7 @@ export function DataTablePost<TData, TValue>({
 
         {/* Button Add */}
         <Button asChild>
-          <Link href={`/dashboard/${title}/add_${title}`} className="capitalize">
+          <Link href={`/dashboard/${subURL}/add_${subURL}`} className="capitalize">
             <FilePlus2 className="mr-2" /> tambah {title}
           </Link>
         </Button>
@@ -148,55 +151,58 @@ export function DataTablePost<TData, TValue>({
         </Alert>
 
         {/* table section */}
-        <Table className="bg-white/75 rounded-lg border-t-4 border-primary border-b-2 w-full overflow-y-auto">
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow className="h-[100px]" key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead className="align-bottom" key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
+        <div className="overflow-y-auto">
+          <Table className="bg-white/75 rounded-lg border-t-4 border-primary border-b-2 w-full">
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow className="h-[100px]" key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => {
+                    return (
+                      <TableHead className="align-bottom" key={header.id}>
+                        {header.isPlaceholder
+                          ? null
+                          : flexRender(
                             header.column.columnDef.header,
                             header.getContext()
                           )}
-                    </TableHead>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
+                      </TableHead>
+                    );
+                  })}
                 </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+              ))}
+            </TableHeader>
+
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    className="whitespace-nowrap xl:whitespace-normal"
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="h-24 text-center"
+                  >
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
       </div>
 
       {/* Table check and button pagination */}

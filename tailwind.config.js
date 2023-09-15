@@ -25,11 +25,16 @@ module.exports = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          gradient: "linier-gradient(to bottom left, hsl(var(--primary)), hsl(var(--primary-gradient)))",
+          gradient:
+            "linier-gradient(to bottom left, hsl(var(--primary)), hsl(var(--primary-gradient)))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+        },
+        third: {
+          DEFAULT : "hsl(var(--third))",
+          foreground: "hsl(var(--third-foreground))"
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",

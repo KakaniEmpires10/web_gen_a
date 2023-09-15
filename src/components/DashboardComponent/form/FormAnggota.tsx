@@ -31,17 +31,17 @@ const FormAnggota = () => {
   const form = useForm<z.infer<typeof AnggotaSchema>>({
     resolver : zodResolver(AnggotaSchema),
     defaultValues : {
-        nama : undefined,
+        nama : "",
         jabatan : undefined,
         kategori : undefined,
         pendidikan : undefined,
-        bidang : undefined,
-        ahli : undefined,
-        email : undefined,
-        instagram : undefined,
-        telephon : undefined,
-        gambar : undefined,
-        deskripsi : undefined
+        bidang : "",
+        ahli : "",
+        email : "",
+        instagram : "",
+        telephon : parseInt(""),
+        gambar : "",
+        deskripsi : ""
     }
   });
 
@@ -256,7 +256,7 @@ const FormAnggota = () => {
                 <FormLabel>Tentang Anda</FormLabel>
                 <FormControl>
                   <Editor
-                    apiKey="swvhoepk3kibkzyqdcjvxse5o6r1ulmed8va9rm4f7vbqb83"
+                    apiKey="swvhoepk3kibkzyqdcjvxse5o6r1ulmed8va9rm4f7vbqb83" //{process.env.TINY_API_KEY}
                     init={{
                       plugins: [
                         "advlist",
