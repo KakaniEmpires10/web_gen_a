@@ -162,7 +162,7 @@ const FormConfig = ({ config }: { config: Konfigurasi | null }) => {
               <FormItem className="flex-grow">
                 <FormLabel>Motto Organisasi (2)</FormLabel>
                 <FormControl>
-                  <Input placeholder="Motto..." {...field} />
+                  <Input placeholder="Motto..." {...field } />
                 </FormControl>
                 <FormDescription className="text-xs">
                   Ini Optional
