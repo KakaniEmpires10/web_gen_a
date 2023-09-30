@@ -23,7 +23,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-const FormConfig = ({ config }: { config: Konfigurasi | null }) => {
+const FormConfig = ({ config }: { config: Konfigurasi }) => {
   const form = useForm<z.infer<typeof ConfigSchema>>({
     resolver: zodResolver(ConfigSchema),
     defaultValues: {
