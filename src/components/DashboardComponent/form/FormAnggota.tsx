@@ -39,7 +39,7 @@ const FormAnggota = () => {
         ahli : "",
         email : "",
         instagram : "",
-        telephon : parseInt(""),
+        telephon : "",
         gambar : "",
         deskripsi : ""
     }
@@ -87,7 +87,6 @@ const FormAnggota = () => {
                       {JabatanAnggota.map((data) => {
                         return (
                           <SelectItem key={data} value={data}>
-                            {" "}
                             {data}
                           </SelectItem>
                         );
@@ -104,23 +103,22 @@ const FormAnggota = () => {
             name="kategori"
             render={({ field }) => (
               <FormItem className="max-w-xs flex-grow">
-                <FormLabel>Kategori</FormLabel>
+                <FormLabel>Sub-unit</FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Pilih Kategori" />
+                      <SelectValue placeholder="Pilih Sub-Unit" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Kategori...</SelectLabel>
+                      <SelectLabel>Sub-Unit...</SelectLabel>
                       {kategoriAnggota.map((data) => {
                         return (
                           <SelectItem key={data} value={data}>
-                            {" "}
                             {data}
                           </SelectItem>
                         );

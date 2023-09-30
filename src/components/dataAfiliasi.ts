@@ -20,7 +20,7 @@ export const dataAfiliasi = [
     url : "/afiliasi/gforce",
     title: "Generation of Fundamental Capacity Educator (G-FORCE)",
     short : "G-Force",
-    color: "white",
+    color: "red",
     desc: "sub-unit yang bergerak dibidang pelatihan softskills terpadu dengan menerapkan kurikulum dan trainer berstandar nasional dan internasional. Tujuan dari subunit ini adalah meningkatkan kualitas softskills dan membentuk kader SDM yang unggul",
   },
   {

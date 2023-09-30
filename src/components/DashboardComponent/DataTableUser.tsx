@@ -22,32 +22,20 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 
-import { use, useState } from "react";
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Link from "next/link";
-import { Search, UserPlus2 } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
-import FormUser from "./form/FormUser";
-import { usePathname } from "next/navigation";
+import { UserPlus2 } from "lucide-react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-  title: String;
 }
 
 export function DataTableUser<TData, TValue>({
   columns,
   data,
-  title,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -67,9 +55,6 @@ export function DataTableUser<TData, TValue>({
     },
   });
 
-  const subURL = title.toLowerCase();
-  const currentURL = usePathname();
-
   return (
     <div>
       <div className="flex items-center justify-between py-4">
@@ -81,38 +66,24 @@ export function DataTableUser<TData, TValue>({
           }
           className="max-w-sm border-gray-500"
         />
-        {currentURL === "/dashboard/user" ? (
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button><UserPlus2 className="mr-2" /> Tambah User</Button>
-            </DialogTrigger>
-            <DialogContent className="border-l-4 border-l-primary">
-              <DialogHeader>
-                <DialogTitle>Tambah user</DialogTitle>
-              </DialogHeader>
-              <FormUser />
-            </DialogContent>
-          </Dialog>
-        ) : (
-          <Button asChild>
-            <Link href={`/dashboard/${subURL}/add_${subURL}`}>
-              <UserPlus2 className="mr-2" /> Tambah {title}
-            </Link>
-          </Button>
-        )}
+        <Button asChild>
+          <Link href={`/dashboard/user/add_user`}>
+            <UserPlus2 className="mr-2" /> Tambah User
+          </Link>
+        </Button>
       </div>
       <div className="relative mt-16">
         <Alert className="absolute -top-10 left-0 right-0 w-[95%] m-auto z-[5]">
           <AlertTitle>Hai User!</AlertTitle>
           <AlertDescription>
-            Disini nih buat lihat daftar {title}{" "}
+            Disini nih buat lihat daftar User
             <span className="font-bold">Gen A</span> yang terdaftar, selamat
             melihat
           </AlertDescription>
         </Alert>
 
         <div className="overflow-y-auto">
-          <Table className="bg-white/75 border-t-4 border-primary border-b-2 w-full">
+          <Table className="border-t-4 border-primary border-b-2 w-full">
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow className="h-[100px]" key={headerGroup.id}>

@@ -71,7 +71,10 @@ const TopBar = () => {
         </h2>
       </div>
       <div className="flex items-center">
-        <ThemeButton />
+
+        {/* fix update selanjutnya */}
+        {/* <ThemeButton /> */}
+        
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger
@@ -89,7 +92,9 @@ const TopBar = () => {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <div className="relative cursor-pointer mt-3 group">
+
+        {/* fix update selanjutnya */}
+        {/* <div className="relative cursor-pointer mt-3 group">
           <Popover>
             <PopoverTrigger>
               <Badge className="absolute -top-3 right-2.5 rounded-full">
@@ -101,7 +106,8 @@ const TopBar = () => {
               you got nothing yet
             </PopoverContent>
           </Popover>
-        </div>
+        </div> */}
+
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" />
           <AvatarFallback>CN</AvatarFallback>

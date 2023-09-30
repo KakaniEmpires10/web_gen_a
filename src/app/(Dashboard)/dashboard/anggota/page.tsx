@@ -1,5 +1,5 @@
+import { DataTableAnggota } from "@/components/DashboardComponent/DataTableAnggota";
 import { Pegawai, columns } from "./column";
-import { DataTableUser } from "@/components/DashboardComponent/DataTableUser";
 import axios from "axios";
 import { Metadata } from "next";
 
@@ -18,7 +18,7 @@ const Users = async() => {
 
   return (
     <section>
-      <DataTableUser columns={columns} data={data} title="Anggota" />
+      <DataTableAnggota columns={columns} data={data} />
     </section>
   );
 };

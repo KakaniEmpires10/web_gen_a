@@ -1,6 +1,6 @@
-import { DataTablePost } from "@/components/DashboardComponent/DataTablePost";
 import { Berita, columns } from "./column";
 import { Metadata } from "next";
+import { DataTableKegiatan } from "@/components/DashboardComponent/DataTableKegiatan";
 
 export const metadata: Metadata = {
   title : "Kegiatan"
@@ -19,7 +19,7 @@ const Kegiatan = async() => {
 
     return (
       <section>
-        <DataTablePost columns={columns} data={data} title="kegiatan" description="Berikut daftar kegiatan milik"/>
+        <DataTableKegiatan columns={columns} data={data} />
       </section>
     );
   };

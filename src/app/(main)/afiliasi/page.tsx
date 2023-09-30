@@ -11,22 +11,32 @@ export const metadata: Metadata = {
   title: "Afiliasi"
 }
 
+const color = [
+  "border-yellow-500",
+  "border-cyan-500",
+  "border-red-500",
+  "border-amber-500",
+  "border-blue-500",
+  "border-white",
+  "border-green-500",
+]
+
 const Page = () => {
   return (
     <>
       {/* -------------------------------------------- header section ---------------------------------------------------------- */}
       <section>
-        <div className="hidden xl:flex">
-          <div className="w-1/4 h-[60vh] border-x border-x-primary bg-slate-900 text-white flex justify-center items-center">1</div>
-          <div className="w-1/4 h-[60vh] border-x border-x-primary bg-slate-900 text-white flex justify-center items-center">2</div>
-          <div className="w-1/4 h-[60vh] border-x border-x-primary bg-slate-900 text-white flex justify-center items-center">3</div>
-          <div className="w-1/4 h-[60vh] border-x border-x-primary bg-slate-900 text-white flex justify-center items-center">4</div>
+        <div className="hidden xl:flex divide-x-2 divide-primary">
+          <div className="w-1/4 h-[60vh] bg-slate-900 text-white flex justify-center items-center">1</div>
+          <div className="w-1/4 h-[60vh] bg-slate-900 text-white flex justify-center items-center">2</div>
+          <div className="w-1/4 h-[60vh] bg-slate-900 text-white flex justify-center items-center">3</div>
+          <div className="w-1/4 h-[60vh] bg-slate-900 text-white flex justify-center items-center">4</div>
         </div>
         <div className="xl:hidden">
           <AfiliasiSlider />
         </div>
         <div className="h-full py-4 space-y-3 border-b-4 border-b-primary rounded-b-xl text-center">
-          <div className="container">
+          <div className="container xl:px-0 px-10">
             <h3>Afiliasi</h3>
             <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quo praesentium nostrum eum voluptates reiciendis porro sunt, vero est. Voluptate beatae ad explicabo, a dolor non quis quibusdam maxime pariatur!</p>
           </div>
@@ -35,7 +45,7 @@ const Page = () => {
 
       {/* -------------------------------------------- deskripsi section --------------------------------------------------------- */}
       <section>
-        <div className="container flex flex-wrap items-center justify-between py-20 gap-10">
+        <div className="container xl:px-0 px-10 flex flex-wrap items-center justify-between py-20 gap-10">
           <div className="space-y-5 lg:w-1/2 w-full">
             <h3>Tentang Afiliasi</h3>
             <hr className="border border-third w-2/6" />
@@ -46,22 +56,20 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <section className="py-10 container">
+      <section className="py-10 xl:px-0 px-10 container">
         <h3>Afiliasi Kami</h3>
         <hr className="border border-third w-3/12 my-4" />
         <div className="flex flex-col gap-10 my-10">
           { dataAfiliasi.map(data => {
-            const color = ["blue", "yellow", "white", "cyan", "red", "amber", "green"];
-
               return (
-                <div key={data.title} className={`shadow hover:shadow-${data.color}-800 bg-${data.color}-800 max-h-fit rounded-lg flex flex-col items-center text-center md:text-left md:flex-row`}>
-                  <Image className="p-8" src={data.logo} alt="logo" width={200} height={40} />
+                <div key={data.title} className={cn("shadow max-h-fit rounded-lg flex flex-col items-center text-center md:text-left md:flex-row", data.color && "")}>
+                  <Image className={`p-8 border-2 ${data.color == "white" ? "border-white" : `border-${data.color}-500`} rounded-[15px]`} src={data.logo} alt="logo" width={200} height={40} />
                   <div className="py-5 mx-5 space-y-4">
                     <h4 className="text-md text-cy font-semibold">{data.title}</h4>
                     <p>{data.desc}</p>
-                    <Button asChild variant="secondary">
+                    {/* <Button asChild variant="secondary">
                       <Link href={data.url}>Lihat Selengkapnya <Landmark className="w-5 h-5 ml-2" /></Link>
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               )

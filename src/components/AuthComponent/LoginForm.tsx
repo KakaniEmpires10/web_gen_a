@@ -26,6 +26,7 @@ import {
   AlertDialogDescription,
   AlertDialogTitle,
 } from "@radix-ui/react-alert-dialog";
+import { toast } from "../ui/use-toast";
 
 const LoginForm = () => {
   const form = useForm<z.infer<typeof LoginSchema>>({
@@ -37,6 +38,15 @@ const LoginForm = () => {
   });
 
   const handleSubmit = (values: z.infer<typeof LoginSchema>) => {
+    try {
+      
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "you got this error: " + error
+      })
+    }
     console.log(values);
   };
 

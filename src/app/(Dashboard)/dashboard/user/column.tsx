@@ -9,21 +9,12 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { User } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, FileEdit, Trash2 } from "lucide-react";
-import { headers } from "next/dist/client/components/headers";
-import { Url } from "next/dist/shared/lib/router/router";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
-export type User = {
-  id: string;
-  avatar: Url;
-  name: String;
-  role: string;
-  username: String;
-  email : String;
-};
 
 export const columns: ColumnDef<User>[] = [
   {
@@ -40,21 +31,29 @@ export const columns: ColumnDef<User>[] = [
         </Button>
       );
     },
+    cell: ({ row }) => {
+      for (let countRow = 1; countRow < columns.length; countRow++) {
+        const count = columns[countRow];
+        return (
+          <p></p>
+        )
+      }
+    }
   },
   {
-    accessorKey: "avatar",
+    accessorKey: "image",
     header: "Profile",
     cell: ({ row }) => {
       return (
         <Avatar>
-          <AvatarImage src={row.getValue("avatar")} />
-          <AvatarFallback className="font-semibold">NO</AvatarFallback>
+          <AvatarImage src={row.getValue("image")} />
+          <AvatarFallback className="font-semibold text-black">NO</AvatarFallback>
         </Avatar>
       );
     },
   },
   {
-    accessorKey: "name",
+    accessorKey: "nama",
     header: "Nama",
   },
   {

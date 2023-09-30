@@ -1,4 +1,5 @@
 'use client'
+import Image from "next/image";
 import Carousel from "nuka-carousel"
 import { useState } from "react";
 
@@ -26,11 +27,18 @@ const HeroSlider = () => {
                 ))}
             </div>
         )} {...settingCarousel}>
-            <div className="h-[85vh] w-full flex justify-center items-center text-4xl font-semibold bg-primary text-primary-foreground">1</div>
-            <div className="h-[85vh] w-full flex justify-center items-center text-4xl font-semibold bg-primary text-primary-foreground">2</div>
-            <div className="h-[85vh] w-full flex justify-center items-center text-4xl font-semibold bg-primary text-primary-foreground">3</div>
-            <div className="h-[85vh] w-full flex justify-center items-center text-4xl font-semibold bg-primary text-primary-foreground">4</div>
-            <div className="h-[85vh] w-full flex justify-center items-center text-4xl font-semibold bg-primary text-primary-foreground">5</div>
+            <div className="relative h-[87vh] w-full bg-cover bg-center bg-gradient-to-t from-black/90 to-transparent">
+                <Image src="/background/bg-slide-1.jpg" alt="" fill className="mix-blend-overlay" />
+            </div>
+            <div className="relative h-[87vh] w-full bg-cover bg-center bg-gradient-to-t from-black/90 to-transparent">
+                <Image src="/background/bg-slide-2.jpg" alt="" fill className="mix-blend-overlay" />
+            </div>
+            <div className="relative h-[87vh] w-full bg-cover bg-center bg-gradient-to-t from-black/90 to-transparent">
+                <Image src="/background/bg-slide-3.jpg" alt="" fill className="mix-blend-overlay" />
+            </div>
+            <div className="relative h-[87vh] w-full bg-cover bg-center bg-gradient-to-t from-black/90 to-transparent">
+                <Image src="/background/bg-slide-4.jpeg" alt="" fill className="mix-blend-overlay" />
+            </div>
         </Carousel>
     )
 }

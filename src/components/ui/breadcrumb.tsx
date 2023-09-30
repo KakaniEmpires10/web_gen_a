@@ -33,7 +33,11 @@ const Breadcrumb = () => {
             </li>
           ) : (
             <li className="flex items-center" key={index}>
-              <Link href={routeTo} className="text-gray-700 hover:text-gray-500 duration-300 dark:text-gray-400 dark:hover:text-white mb-[0.15rem] mr-[12px] font-medium"><small>{path}</small></Link>
+              <Link href={routeTo} className="text-gray-700 hover:text-gray-500 duration-300 dark:text-gray-400 dark:hover:text-white mb-[0.15rem] mr-[12px] font-medium">
+                <small>
+                  {path}
+                </small>
+              </Link>
               <span className="flex items-center">
                 <svg
                   className="w-2 h-2 text-gray-400 mx-1"

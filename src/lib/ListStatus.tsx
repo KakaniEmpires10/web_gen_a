@@ -43,4 +43,25 @@ export const ListStatus: IListStatus[] = [
     iconButton: <ArrowBigRightDash className="w-5" />,
     link: "/dashboard/anggota",
   },
+  {
+    post: 5,
+    title: "Galeri",
+    icon: <HiUserGroup className="text-3xl" />,
+    iconButton: <ArrowBigRightDash className="w-5" />,
+    link: "/dashboard/gallery",
+  },
+  {
+    post: 5,
+    title: "Afiliasi",
+    icon: <HiUserGroup className="text-3xl" />,
+    iconButton: <ArrowBigRightDash className="w-5" />,
+    link: "/dashboard/afiliasi",
+  },
+  {
+    post: 5,
+    title: "User",
+    icon: <HiUserGroup className="text-3xl" />,
+    iconButton: <ArrowBigRightDash className="w-5" />,
+    link: "/dashboard/user",
+  },
 ];

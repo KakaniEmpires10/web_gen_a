@@ -5,6 +5,7 @@ import { Calendar } from "@/components/ui/calendar";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -45,7 +46,7 @@ const FormKegiatan = () => {
       kategori : undefined,
       konten : "",
       ringkasan : "",
-      status : undefined,
+      subUnit : undefined,
       tanggal : new Date(),
     }
   });
@@ -63,7 +64,7 @@ const FormKegiatan = () => {
               control={form.control}
               name="judul"
               render={({ field }) => (
-                <FormItem className="max-w-xl flex-grow">
+                <FormItem className="flex-grow">
                   <FormLabel>Judul</FormLabel>
                   <FormControl>
                     <Input
@@ -80,7 +81,7 @@ const FormKegiatan = () => {
               control={form.control}
               name="ringkasan"
               render={({ field }) => (
-                <FormItem className="max-w-xl flex-grow">
+                <FormItem className="flex-grow">
                   <FormLabel>Ringkasan / Keyword</FormLabel>
                   <FormControl>
                     <Input
@@ -99,7 +100,7 @@ const FormKegiatan = () => {
               control={form.control}
               name="kategori"
               render={({ field }) => (
-                <FormItem className="max-w-xl flex-grow">
+                <FormItem className="flex-grow">
                   <FormLabel>Kategori</FormLabel>
                   <Select
                     onValueChange={field.onChange}
@@ -132,7 +133,7 @@ const FormKegiatan = () => {
               control={form.control}
               name="gambarBerita"
               render={({ field }) => (
-                <FormItem className="max-w-xl flex-grow">
+                <FormItem className="flex-grow">
                   <FormLabel>Gambar Utama</FormLabel>
                   <FormControl>
                     <Input type="file" accept="image/*" {...field} />
@@ -219,28 +220,29 @@ const FormKegiatan = () => {
                       />
                     </PopoverContent>
                   </Popover>
+                  <FormDescription>Tanggal Pelaksanaan</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
             />
             <FormField
               control={form.control}
-              name="status"
+              name="subUnit"
               render={({ field }) => (
-                <FormItem className="max-w-xl flex-grow">
-                  <FormLabel>Status</FormLabel>
+                <FormItem className="flex-grow">
+                  <FormLabel>Sub-Unit</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Pilih Status" />
+                        <SelectValue placeholder="Pilih Sub-Unit" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
                       <SelectGroup>
-                        <SelectLabel>status...</SelectLabel>
+                        <SelectLabel>Sub-Unit...</SelectLabel>
                         {status.map((data) => {
                           return (
                             <SelectItem key={data} value={data}>
@@ -251,6 +253,7 @@ const FormKegiatan = () => {
                       </SelectGroup>
                     </SelectContent>
                   </Select>
+                  <FormDescription>Unit Pelaksana</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -259,7 +262,7 @@ const FormKegiatan = () => {
               control={form.control}
               name="author"
               render={({ field }) => (
-                <FormItem className="max-w-xl flex-grow">
+                <FormItem className="flex-grow">
                   <FormLabel>Author</FormLabel>
                   <FormControl>
                     <Input type="text" placeholder="penulis" {...field} />

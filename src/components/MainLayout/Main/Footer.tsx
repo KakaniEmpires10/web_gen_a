@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Facebook, Instagram, Linkedin, Mails, Map, Phone, SearchIcon, Twitter } from "lucide-react"
+import { getConfig } from "@/lib/Config"
+import { Mails, Map, Phone, SearchIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
-const Footer = () => {
+const Footer = async() => {
+    const config = await getConfig();
+
     return (
         <>
             <footer className="block sm:hidden footer">
@@ -16,9 +19,9 @@ const Footer = () => {
                     <div className="space-y-5">
                         <h3 className="text-3xl font-bold">Details</h3>
                         <ul className="space-y-4 font-semibold">
-                            <li className="flex gap-3"><Map />Address</li>
-                            <li className="flex gap-3"><Mails />Email</li>
-                            <li className="flex gap-3"><Phone />Phone</li>
+                            <li className="flex gap-3"><Map />{config?.alamatOrganisasi}</li>
+                            <li className="flex gap-3"><Mails />{config?.emailOrganisasi}</li>
+                            <li className="flex gap-3"><Phone />{config?.telOrganisasi}</li>
                         </ul>
                     </div>
                     <div className="space-y-5">
@@ -94,9 +97,9 @@ const Footer = () => {
                         </div>
                         <div className="font-semibold">
                             <ul className="space-y-5">
-                                <li className="flex justify-end items-center">Address <Map className="ml-3 w-7 h-7" /></li>
-                                <li className="flex justify-end items-center">Email Name <Mails className="ml-3 w-7 h-7" /></li>
-                                <li className="flex justify-end items-center">Phoen Number <Phone className="ml-3 w-7 h-7" /></li>
+                                <li className="flex justify-end items-center">{config?.alamatOrganisasi} <Map className="ml-3 w-7 h-7" /></li>
+                                <li className="flex justify-end items-center">{config?.emailOrganisasi} Name <Mails className="ml-3 w-7 h-7" /></li>
+                                <li className="flex justify-end items-center">{config?.telOrganisasi} <Phone className="ml-3 w-7 h-7" /></li>
                             </ul>
                         </div>
                     </div>
@@ -249,11 +252,11 @@ const Footer = () => {
                                 </Button>
                             </div>
                         </div>
-                        <div className="font-semibold text-lg">
+                        <div className="font-semibold">
                             <ul className="space-y-10">
-                                <li className="flex justify-end items-center">Address <Map className="ml-3 w-7 h-7" /></li>
-                                <li className="flex justify-end items-center">Email Name <Mails className="ml-3 w-7 h-7" /></li>
-                                <li className="flex justify-end items-center">Phoen Number <Phone className="ml-3 w-7 h-7" /></li>
+                                <li className="flex justify-end text-sm items-center">{config?.alamatOrganisasi} <Map className="ml-3 w-7 h-7" /></li>
+                                <li className="flex justify-end text-base items-center">{config?.emailOrganisasi} <Mails className="ml-3 w-7 h-7" /></li>
+                                <li className="flex justify-end text-base tracking-wider items-center">{config?.telOrganisasi} <Phone className="ml-3 w-7 h-7" /></li>
                             </ul>
                         </div>
                     </div>

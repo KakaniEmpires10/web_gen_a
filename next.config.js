@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    serverActions: true
+  },
   images: {
     remotePatterns: [
       {
@@ -7,6 +10,12 @@ const nextConfig = {
         hostname: "loremflickr.com",
         port: "",
         pathname: "/640/480/nightlife",
+      },
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+        port: "",
+        pathname: "/200",
       },
       {
         protocol: "https",

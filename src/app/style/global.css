@@ -11,17 +11,24 @@
     --popover: 0 0% 100%;
     --popover-foreground: 20 14.3% 4.1%;
     --primary: 47.9 95.8% 53.1%;
+    --primary-gradient: linear-gradient(to bottom left, rgb(253,224,71), rgb(250 204 21), rgb(234 179 8));
     --primary-foreground: 26 83.3% 14.1%;
     --secondary: 27, 92%, 56%;
+    --secondary-gradient: linear-gradient(to bottom left, rgb(251 146 60), rgb(251 146 60), rgb(249 115 22));
     --secondary-foreground: 0 0% 98%;
     --third: 214, 20%, 15%;
+    --third-gradient: linear-gradient(to bottom left, rgb(55 65 81), rgb(17 24 39));
     --third-foreground: 0, 0%, 95%;
     --muted: 60 4.8% 95.9%;
     --muted-foreground: 25 5.3% 44.7%;
     --accent: 60 4.8% 95.9%;
     --accent-foreground: 24 9.8% 10%;
     --destructive: 0 84.2% 60.2%;
+    --destructive-gradient:linear-gradient(to bottom left, rgb(239,68,68), rgb(220,38,38), rgb(185,28,28));
     --destructive-foreground: 60 9.1% 97.8%;
+    --success: 142.1,70.6%,45.3%;
+    --success-gradient: linear-gradient(to bottom left, rgb(74,222,128), rgb(34,197,94), rgb(22,163,74));
+    --success-foreground: 0 0% 9%;
     --border: 20 5.9% 90%;
     --input: 20 5.9% 90%;
     --ring: 20 14.3% 4.1%;
@@ -29,7 +36,7 @@
   }
 
   .dark {
-    --background: 20 14.3% 4.1%;
+    --background: 0,0%,9.5%;
     --foreground: 60 9.1% 97.8%;
     --card: 20 14.3% 4.1%;
     --card-foreground: 60 9.1% 97.8%;
@@ -46,7 +53,11 @@
     --accent: 12 6.5% 15.1%;
     --accent-foreground: 60 9.1% 97.8%;
     --destructive: 0 62.8% 30.6%;
+    --destructive-gradient:linear-gradient(to bottom left, rgb(239,68,68), rgb(220,38,38), rgb(185,28,28));
     --destructive-foreground: 60 9.1% 97.8%;
+    --success: 142.1,70.6%,45.3%;
+    --success-gradient: linear-gradient(to bottom left, rgb(74,222,128), rgb(34,197,94), rgb(22,163,74));
+    --success-foreground: 60 9.1% 97.8%;
     --border: 12 6.5% 15.1%;
     --input: 12 6.5% 15.1%;
     --ring: 35.5 91.7% 32.9%;

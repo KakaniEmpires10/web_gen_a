@@ -1,8 +1,8 @@
 .mapouter {
   position: relative;
   text-align: right;
-  width: 45%;
-  height: 90%
+  width: 90%;
+  height: 100%
 }
 .gmap_canvas {
   overflow: hidden;

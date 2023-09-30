@@ -5,111 +5,158 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// datasource db {
+//   provider  = "postgresql"
+//   url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+//   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+// }
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  username String @unique
-  password String
-  role     Role   @default(User)
-  // Tambahkan field lain seperti nama, email, dll. sesuai kebutuhan.
-  nama     String
-  email    String
-  // Relasi dengan Blog
-  blogs    Blog[] @relation("userBlogs")
-}
-
-model Blog {
-  id        Int        @id @default(autoincrement())
-  title     String
-  content   String
-  status    StatusBlog @default(pending)
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  author    User       @relation("userBlogs", fields: [authorId], references: [id])
-  authorId  Int
-  // Tambahkan field lain seperti tags, gambar, dll. sesuai kebutuhan.
-}
-
-model Karya {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String?
-  imageUrl    String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  anggota     Anggota  @relation("karyaAnggota", fields: [anggotaId], references: [id])
-  anggotaId   Int
-  // Tambahkan field lain seperti kategori, teknik, dll. sesuai kebutuhan.
-}
-
-model Page {
-  id      Int    @id @default(autoincrement())
-  title   String
-  content String
-  // Tambahkan field lain seperti gambar, dll. sesuai kebutuhan.
-}
-
-model Gallery {
-  id        Int    @id @default(autoincrement())
-  title     String
-  imageUrl  String
-  deskripsi String?
-  // Tambahkan field lain seperti deskripsi, tanggal, dll. sesuai kebutuhan.
-}
-
-// Tambahkan model Afiliasi
-model Afiliasi {
-  id        Int        @id @default(autoincrement())
-  name      String
-  // Tambahkan field lain seperti deskripsi, logo, dll. sesuai kebutuhan.
-  kegiatans Kegiatan[] @relation("afiliasiKegiatans")
-}
-
-// Tambahkan model Kegiatan Afiliasi
-model Kegiatan {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  date        DateTime
-  // Tambahkan field lain seperti gambar, lokasi, dll. sesuai kebutuhan.
-  afiliasi    Afiliasi @relation("afiliasiKegiatans", fields: [afiliasiId], references: [id])
-  afiliasiId  Int
+  id             String     @id @default(cuid())
+  nama           String
+  email          String     @unique
+  emailVerified  DateTime?
+  username       String
+  hashedPassword String
+  role           Role       @default(User)
+  image          String?
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  berita         Berita[]
+  kegiatan       Kegiatan[]
+  Unggulan       Unggulan[]
 }
 
 model Anggota {
-  id         Int     @id @default(autoincrement())
+  id         String        @id @default(cuid())
   nama       String
-  fotoProfil String? // URL atau nama file foto profil
-  areaKerja  String
-  jabatan    String
-  bio        String
-  karyas     Karya[] @relation("karyaAnggota")
+  jabatan    Jabatan
+  pendidikan Pendidikan
+  bidang     String?
+  keahlian   String
+  email      String        @unique
+  instagram  String?
+  telephone  String?
+  image      String?
+  about      String
+  status     StatusAnggota @default(Aktif)
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  afiliasi   Afiliasi @relation(fields: [afiliasiId], references: [id])
+  afiliasiId String
+}
+
+model Afiliasi {
+  id        String     @id @default(cuid())
+  nama      String
+  singkatan String
+  deskripsi String
+  warna     String
+  logo      String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  anggota   Anggota[]
+  kegiatan  Kegiatan[]
+  Unggulan  Unggulan[]
+}
+
+model Berita {
+  id      Int        @id @default(autoincrement())
+  judul   String
+  keyword String
+  konten  String
+  tanggal DateTime   @default(now())
+  status  StatusBlog @default(pending)
+
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  kategori  Kategori[]
+}
+
+model Kategori {
+  id     Int      @id @default(autoincrement())
+  nama   String   @unique
+  berita Berita[]
+}
+
+model Kegiatan {
+  id      Int      @id @default(autoincrement())
+  judul   String
+  keyword String
+  konten  String
+  tanggal DateTime @default(now())
+
+  subUnit    Afiliasi @relation(fields: [afiliasiId], references: [id])
+  afiliasiId String
+
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Unggulan {
+  id      Int      @id @default(autoincrement())
+  judul   String
+  keyword String
+  konten  String
+  tanggal DateTime @default(now())
+
+  subUnit    Afiliasi @relation(fields: [afiliasiId], references: [id])
+  afiliasiId String
+
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model karyaTulisan {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Galleri {
+  id        Int      @id @default(autoincrement())
+  image     String
+  title     String?
+  deskripsi String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Konfigurasi {
-  id                    Int     @id @default(autoincrement())
-  keyword               String
-  metadata              String
-  namaOrganisasi        String
-  singkatanOrganisasi   String
-  motto                 String
-  motto2                String
-  deskripsiOrganisasi   String
-  deskripsiWeb          String
-  URLWebsite            String
-  emailOrganisasi       String
-  telOrganisasi         Int
-  alamatOrganisasi      String
-  facebook              String?
-  instagram             String?
-  linkedIn              String?
-  URLfacebook           String?
-  URLinstagram          String?
-  URLlinkedIn           String?
+  id                  String  @id @default(cuid())
+  keyword             String
+  metadata            String
+  namaOrganisasi      String
+  singkatanOrganisasi String
+  motto               String
+  motto2              String?
+  deskripsiOrganisasi String
+  deskripsiWeb        String
+  URLWebsite          String
+  emailOrganisasi     String
+  telOrganisasi       String
+  alamatOrganisasi    String
+  facebook            String?
+  instagram           String?
+  linkedIn            String?
+  URLfacebook         String?
+  URLinstagram        String?
+  URLlinkedIn         String?
 }
 
 enum Role {
@@ -122,7 +169,20 @@ enum StatusBlog {
   publish
 }
 
+enum Jabatan {
+  Ketua
+  Anggota
+}
+
 enum StatusAnggota {
   Aktif
   TidakAktif
+}
+
+enum Pendidikan {
+  SD
+  SMP
+  SMA
+  D3
+  S1
 }

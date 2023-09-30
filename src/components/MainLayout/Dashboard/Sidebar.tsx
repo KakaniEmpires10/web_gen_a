@@ -68,9 +68,9 @@ const Sidebar = () => {
                 <li key={index}>
                   <Link
                     href={link}
-                    className={`flex items-center p-4 text-gray-200 hover:text-primary-foreground hover:bg-primary hover:scale-105 ${
+                    className={`flex items-center p-4 text-gray-200 hover:text-primary-foreground hover:bg-primary-gradient hover:scale-105 ${
                       isActive
-                        ? "bg-primary text-primary-foreground shadow-lg"
+                        ? "bg-primary-gradient text-primary-foreground shadow-lg"
                         : ""
                     } rounded-lg ${
                       isSidebarOpen ? "" : "justify-center"

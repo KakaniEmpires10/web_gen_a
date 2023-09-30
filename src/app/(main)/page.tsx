@@ -15,7 +15,7 @@ const Page = () => {
       </section>
 
       {/* ------------------------------------------ logo section ------------------------------------------------------- */}
-      <div className="p-5 flex overflow-y-auto gap-10 border-b-2 border-b-primary justify-evenly bg-white">
+      <div className="p-5 flex overflow-y-auto gap-10 border-b-2 border-b-primary md:justify-evenly bg-white">
         {
           dataAfiliasi.map(item => (
             <Image key={item.title} src={item.logo} alt="logo" width={60} height={60} />
@@ -24,31 +24,37 @@ const Page = () => {
       </div>
 
       {/* --------------------------------------------- Tentang Section ---------------------------------------------------- */}
-      <section className="relative">
-        <div className="container flex flex-wrap items-center justify-between py-20 gap-10">
-          <div className="space-y-5 lg:w-1/2 w-full">
-            <h3>Tentang Kami</h3>
+      <section className="relative bg-[url(/wavy/haikei/wave-haikei-orange.svg)] bg-opacity-5 bg-cover bg-bottom">
+        <div className="flex flex-wrap items-center p-32 pb-64 gap-10">
+          <div className="space-y-5 xl:w-1/2 w-full">
+            <h3>Siapa Kami?</h3>
             <hr className="border border-third w-2/6" />
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos aut voluptatem itaque corporis. Optio laboriosam odit quidem provident, quisquam aperiam corrupti consequuntur. Blanditiis quas vero, vitae modi quae quo quos non impedit ab voluptates deleniti. Illum ab aperiam eligendi reiciendis expedita debitis eum tenetur consequatur, adipisci odit, esse soluta dolor, nulla sunt quos. Iure tenetur quaerat reprehenderit nobis itaque animi!</p>
+            <p><span className="font-semibold">Generasi Edukasi Nanggroe Aceh Darussalam (GEN-A)</span> adalah Lembaga Swadaya Masyarakat yang digagas sebagai bentuk kepedulian dan keinginan kuat untuk menjadi <span className="font-semibold">Katalisator</span> bagi pembangunan karakter <span className="font-semibold">Generasi Unggul Aceh</span> melalui <span className="font-semibold">Pengabdian Masyarakat, Pelatihan dan Penelitian</span></p>
             <Button asChild><Link href="/about_us">More About us <GiSupersonicArrow className="ml-3" /></Link></Button>
           </div>
-          <div className="lg:w-1/3 w-full flex justify-center">
-            <Image src="/wavy/green4.png" alt="blob" width={250} height={250} />
+          <div className="relative xl:w-1/3 w-full h-full flex justify-center flex-grow">
+            <div className="group bg-secondary-gradient shadow shadow-secondary hover:shadow-lg xl:hover:rotate-6 transition-all duration-300">
+              <div className="bg-primary-gradient shadow shadow-primary group-hover:shadow-lg group-hover:rotate-0 transition-all duration-300">
+                <video className="rounded-lg xl:-rotate-3 z-10 shadow group-hover:shadow-md group-hover:shadow-primary xl:group-hover:-rotate-12 transition-all duration-300" autoPlay muted loop controls>
+                  <source src="/Gen_ Intro.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ---------------------------------------------- Suhu Section ------------------------------------------------------ */}
-      <section className="p-[5%]">
+      {/* <section className="p-[5%]">
         <h3 className="text-center">
           Suhu
         </h3>
         <hr className="mt-7 mb-20 border border-black rounded-xl w-1/12 m-auto" />
         <SuhuSlider />
         <Button asChild><Link className="my-10 self-center" href="/about">Lihat Selengkapnya</Link></Button>
-      </section>
+      </section> */}
 
-      {/* ---------------------------------------------- Berita Section ---------------------------------------------------- */}
+      {/* ---------------------------------------------- Berita Section ----------------------------------------------------
       <section>
         <div className="container py-12 space-y-7">
           <h3 className="text-center">Berita</h3>
@@ -59,7 +65,7 @@ const Page = () => {
             <CardBerita />
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }

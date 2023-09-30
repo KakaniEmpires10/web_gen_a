@@ -50,7 +50,7 @@ const ForgetForm = () => {
 
   const handlePasswordChange = (data : z.infer<typeof NewPasswordSchema>) => {
     toast({
-      variant: "succes",
+      variant: "success",
       description: `Action Success <br />Isinya ${data}`,
     });
     console.log(data);

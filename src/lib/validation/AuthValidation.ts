@@ -18,8 +18,7 @@ export const RegisterSchema = z.object({
     .email()
     .refine((val) => val.endsWith("@gmail.com") || val.endsWith("@yahoo.com"), {
       message: "Emailnya yang bener dong (...@gmail.com) atau (...@yahoo.com)",
-    })
-    .optional(),
+    }),
   password: z
     .string({ required_error: "Password harus diisi" })
     .min(3, { message: "sikit banget bahh, jangan kurang dari 3 karakter" })

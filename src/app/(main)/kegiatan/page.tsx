@@ -12,6 +12,7 @@ const page = () => {
   return (
     <>
       <h3>List Kegiatan GEN-A</h3>
+      <hr />
       <div className={`max-h-fit rounded-lg border border-secondary shadow-md flex flex-col items-center text-center md:text-left md:flex-row`}>
         <Image className="p-8" src="" alt="logo" width={200} height={40} />
         <div className="py-5 mx-5 space-y-4">

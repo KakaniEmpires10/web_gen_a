@@ -19,7 +19,7 @@ export const UnggulanSchema = z.object({
     gambarBerita : z.string().optional(),
     konten : z.string().optional(),
     tanggal : z.date(),
-    status : z.enum(status),
+    subUnit : z.enum(status),
     author : z.string({required_error : "Penulis harus diisi"})
 })
 
@@ -30,7 +30,7 @@ export const KegiatanSchema = z.object({
     gambarBerita : z.string().optional(),
     konten : z.string().optional(),
     tanggal : z.date(),
-    status : z.enum(status),
+    subUnit : z.enum(status),
     author : z.string({required_error : "Penulis harus diisi"})
 })
 
@@ -53,7 +53,7 @@ export const AnggotaSchema = z.object({
       )
       .optional(),
     instagram : z.string().optional(),
-    telephon : z.number().optional(),
+    telephon : z.string().optional(),
     gambar : z.string().optional(),
     deskripsi : z.string().optional()
 })

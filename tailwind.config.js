@@ -10,12 +10,18 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
       screens: {
         "2xl": "1400px",
       },
     },
     extend: {
+      backgroundImage: {
+        "primary-gradient": "var(--primary-gradient)",
+        "secondary-gradient": "var(--secondary-gradient)",
+        "third-gradient": "var(--third-gradient)",
+        success: "var(--success-gradient)",
+        destructive: "var(--destructive-gradient)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -25,20 +31,22 @@ module.exports = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          gradient:
-            "linier-gradient(to bottom left, hsl(var(--primary)), hsl(var(--primary-gradient)))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
         third: {
-          DEFAULT : "hsl(var(--third))",
-          foreground: "hsl(var(--third-foreground))"
+          DEFAULT: "hsl(var(--third))",
+          foreground: "hsl(var(--third-foreground))",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
+          solid: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
+        },
+        success: {
+          solid: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",

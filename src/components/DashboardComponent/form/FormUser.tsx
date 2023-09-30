@@ -18,10 +18,11 @@ import { Save } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { usePathname, useRouter } from "next/navigation";
+import { toast } from "@/components/ui/use-toast";
+import { addUser } from "@/action/userAction";
 
 const FormUser = () => {
   const router = useRouter();
-  const currentURL = usePathname()
 
   const form = useForm<z.infer<typeof RegisterSchema>>({
     resolver : zodResolver(RegisterSchema),
@@ -34,9 +35,26 @@ const FormUser = () => {
     }
   });
 
-  const handleSubmit = (values: z.infer<typeof RegisterSchema>) => {
-    console.log(values);
-    router.push(currentURL);
+  const handleSubmit = async(values: z.infer<typeof RegisterSchema>) => {
+    try {
+      
+      await addUser(values)
+
+      toast({
+        variant: "success",
+        title: "Success",
+        description: "User Created Successfully"
+      })
+
+      router.refresh();
+
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "You got this error: " + error
+      })
+    }
   };
   
   return (

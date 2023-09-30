@@ -52,7 +52,7 @@ export const columns: ColumnDef<Berita>[] = [
     cell: ({ row }) => {
       return (
         <AspectRatio ratio={16 / 9}>
-          <Image className="rounded-lg object-cover" src={row.getValue("image")} alt="Featured Image..." fill sizes="33vw"/>
+          <Image className="rounded-lg object-cover" src={row.getValue("image")} alt="Featured Image..." fill sizes="33vw" />
         </AspectRatio>
       );
     },
@@ -88,7 +88,8 @@ export const columns: ColumnDef<Berita>[] = [
               <TooltipTrigger asChild>
                 <Button
                   size="sm"
-                  className="rounded-full bg-green-500 hover:bg-green-500/80"
+                  variant="success"
+                  className="rounded-full"
                 >
                   <Eye className="w-3" />
                 </Button>

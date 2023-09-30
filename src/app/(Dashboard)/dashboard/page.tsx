@@ -12,10 +12,8 @@ export default function Home() {
           Selamat datang di halaman dashboard yang sederhana dan cakep ini
         </AlertDescription>
       </Alert>
-      <div className="flex flex-wrap justify-evenly">
-        <Suspense fallback={<CardSkeleton />}>
-          <CardStatus />
-        </Suspense>
+      <div className="flex flex-wrap justify-center gap-14">
+        <CardStatus />
       </div>
     </section>
   );

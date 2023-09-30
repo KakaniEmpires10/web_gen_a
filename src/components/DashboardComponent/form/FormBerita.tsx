@@ -63,7 +63,7 @@ const FormBerita = () => {
               control={form.control}
               name="judul"
               render={({ field }) => (
-                <FormItem className="max-w-xl flex-grow">
+                <FormItem className="flex-grow">
                   <FormLabel>Judul</FormLabel>
                   <FormControl>
                     <Input
@@ -80,7 +80,7 @@ const FormBerita = () => {
               control={form.control}
               name="ringkasan"
               render={({ field }) => (
-                <FormItem className="max-w-xl flex-grow">
+                <FormItem className="flex-grow">
                   <FormLabel>Ringkasan / Keyword</FormLabel>
                   <FormControl>
                     <Input
@@ -99,7 +99,7 @@ const FormBerita = () => {
               control={form.control}
               name="kategori"
               render={({ field }) => (
-                <FormItem className="max-w-xl flex-grow">
+                <FormItem className="flex-grow">
                   <FormLabel>Kategori</FormLabel>
                   <Select
                     onValueChange={field.onChange}
@@ -132,7 +132,7 @@ const FormBerita = () => {
               control={form.control}
               name="gambarBerita"
               render={({ field }) => (
-                <FormItem className="max-w-xl flex-grow">
+                <FormItem className="flex-grow">
                   <FormLabel>Gambar Utama</FormLabel>
                   <FormControl>
                     <Input type="file" accept="image/*" {...field} />
@@ -227,7 +227,7 @@ const FormBerita = () => {
               control={form.control}
               name="status"
               render={({ field }) => (
-                <FormItem className="max-w-xl flex-grow">
+                <FormItem className="flex-grow">
                   <FormLabel>Status</FormLabel>
                   <Select
                     onValueChange={field.onChange}
@@ -259,7 +259,7 @@ const FormBerita = () => {
               control={form.control}
               name="author"
               render={({ field }) => (
-                <FormItem className="max-w-xl flex-grow">
+                <FormItem className="flex-grow">
                   <FormLabel>Author</FormLabel>
                   <FormControl>
                     <Input type="text" placeholder="penulis" {...field} />

@@ -61,7 +61,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`px-4 py-2 bg-accent text-accent-foreground flex justify-between z-50 duration-300 ${isTarnsparent && "fixed top-0 left-0 right-0 bg-transparent"} ${isSticky && "fixed top-5 left-0 right-0 shadow shadow-black bg-white/80 mx-7 md:mx-16 backdrop-blur-sm rounded-xl"}`}>
+      <nav className={`px-4 py-2 bg-accent text-black text-accent-foreground flex justify-between z-50 duration-300 ${isTarnsparent && "fixed top-0 left-0 right-0 bg-transparent"} ${isSticky && "fixed top-5 left-0 right-0 shadow shadow-black bg-white/80 mx-7 md:mx-16 backdrop-blur-sm rounded-xl"} ${isSticky && isTarnsparent ? "text-black" : !isSticky && !isTarnsparent ? "text-black" : !isSticky && isTarnsparent && "text-white"}`}>
         <Link className="flex items-center hover:scale-105 duration-200 gap-2" href="/">
           <div className="relative rounded-full overflow-visible w-10 h-12">
             <Image
@@ -82,7 +82,7 @@ const Navbar = () => {
                 <NavigationMenuItem key={index}>
                   <Link href={item.link} legacyBehavior passHref>
                     <NavigationMenuLink
-                      className={`${navigationMenuTriggerStyle()} py-6 ${isActive && "bg-primary text-primary-foreground"}`}
+                      className={`${navigationMenuTriggerStyle()} text-black py-6 ${isActive && "bg-primary text-primary-foreground"} ${isSticky && isTarnsparent ? "text-black" : !isSticky && !isTarnsparent ? "text-black" : !isSticky && isTarnsparent && "text-white hover:text-primary-foreground"}`}
                     >
                       {item.title}
                     </NavigationMenuLink>

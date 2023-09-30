@@ -19,52 +19,9 @@ const CardLogin = () => {
         <Alert className="absolute px-20 py-8 -top-10 left-0 right-0 mx-auto flex flex-col justify-center gap-4 items-center max-w-sm shadow shadow-primary">
           <CardTitle className="font-bold text-2xl">Login</CardTitle>
           <Separator />
-          <AlertDescription className="flex justify-around items-center w-full mt-2">
-            <Button
-              asChild
-              className="rounded-full overflow-visible hover:scale-110"
-              size="icon"
-              variant="link"
-            >
-              <Link href="#">
-                <Image
-                  src="/Facebook_flower.png"
-                  alt="Alt_login"
-                  height={35}
-                  width={35}
-                />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              className="rounded-full overflow-visible hover:scale-110"
-              size="icon"
-              variant="link"
-            >
-              <Link href="#">
-                <Image
-                  src="/Instagram_flower.png"
-                  alt="Alt_login"
-                  height={35}
-                  width={35}
-                />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              className="rounded-full overflow-visible hover:scale-110"
-              size="icon"
-              variant="link"
-            >
-              <Link href="#">
-                <Image
-                  src="/Google_flower.png"
-                  alt="Alt_login"
-                  height={35}
-                  width={35}
-                />
-              </Link>
-            </Button>
+          <AlertDescription className="flex justify-around items-center w-full mt-2 text-center">
+            Jangan lupa login dulu ya sis... <br />
+            kejap aja kok
           </AlertDescription>
         </Alert>
       </CardHeader>

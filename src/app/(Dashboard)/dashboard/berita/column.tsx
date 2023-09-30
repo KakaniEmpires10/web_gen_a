@@ -88,7 +88,8 @@ export const columns: ColumnDef<Berita>[] = [
               <TooltipTrigger asChild>
                 <Button
                   size="sm"
-                  className="rounded-full bg-green-500 hover:bg-green-500/80"
+                  variant="success"
+                  className="rounded-full"
                 >
                   <Eye className="w-3" />
                 </Button>

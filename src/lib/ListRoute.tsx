@@ -71,6 +71,10 @@ export const ListNav : IListNav[] = [
         link  : "/about_us"
     },
     {
+        title : "Anggota",
+        link  : "/anggota"
+    },
+    {
         title: "Afiliasi",
         link: "/afiliasi"
     },
@@ -79,7 +83,11 @@ export const ListNav : IListNav[] = [
         link  : "/contact_us"
     },
     {
-        title : "Keigatan",
+        title : "Berita",
+        link  : "/berita"
+    },
+    {
+        title : "Kegiatan",
         link  : "/kegiatan"
     },
     {
