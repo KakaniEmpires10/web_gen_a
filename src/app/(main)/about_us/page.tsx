@@ -9,6 +9,7 @@ import Link from "next/link";
 import { dataAfiliasi } from "@/components/dataAfiliasi";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { getConfig } from "@/lib/Config";
+import React from 'react';
 
 export const metadata: Metadata = {
   title: "Tentang Kami"
