@@ -10,7 +10,9 @@ const HeroSlider = () => {
         wrapAround: true,
         autoplay: true,
         autoplayInterval: 3000,
+        // @ts-ignore
         renderCenterLeftControls: null,
+        // @ts-ignore
         renderCenterRightControls: null
     }
 

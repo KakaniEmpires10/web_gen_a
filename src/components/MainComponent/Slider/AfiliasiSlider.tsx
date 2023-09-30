@@ -10,20 +10,13 @@ import { useState } from "react";
 const AfiliasiSlider = () => {
     const [slideIndex, setSlideIndex] = useState<number>(0);
 
-
-    interface carousel {
-        wrapAround: boolean,
-        autoplay: boolean,
-        autoplayInterval: number,
-        renderCenterLeftControls: null,
-        renderCenterRightControls: null
-    }
-
-    const settingCarousel: carousel = {
+    const settingCarousel = {
         wrapAround: true,
         autoplay: true,
         autoplayInterval: 3000,
+        // @ts-ignore
         renderCenterLeftControls: null,
+        // @ts-ignore
         renderCenterRightControls: null
     }
 
