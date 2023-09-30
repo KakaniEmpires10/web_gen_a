@@ -27,7 +27,7 @@ const Page = async () => {
             <div className="space-y-5 px-20 py-20 lg:py-0 flex flex-col justify-center lg:w-[45%]">
               <h3 className="text-3xl font-bold">siapa kami ?</h3>
               <hr className="w-3/6 border border-black" />
-              <div dangerouslySetInnerHTML={{ __html: config?.deskripsiOrganisasi}}></div>
+              <div dangerouslySetInnerHTML={{ __html: config.deskripsiOrganisasi ? config.deskripsiOrganisasi : ""}}></div>
               <Button className="hover:bg-gray-900/80 w-fit" asChild variant="third"><Link href="/contact_us"><MessagesSquareIcon className="w-5 h-5 mr-3 text-white" />Hubungi Kami</Link></Button>
             </div>
             <div className="relative w-full h-[50vh] lg:w-[55%] lg:skew-x-12 lg:translate-x-20">
